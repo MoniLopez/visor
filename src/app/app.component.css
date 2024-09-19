@@ -1,0 +1,24 @@
+.cabecera{
+    background: #691b33;
+    height: 130px;
+    color: #ffffff;
+}
+
+.tablaIns{
+    background: #583719;
+    color: #ffffff;
+}
+
+.tablaApen{
+    background: #691b33;
+    color: #ffffff;
+}
+
+#mat-paginator-page-size-label-0, #mat-paginator-page-size-label-1  {
+    display: none;
+}
+
+.apuntador:hover{
+    color:#8FC63F;
+    cursor: pointer;
+}

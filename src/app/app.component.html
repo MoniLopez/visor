@@ -1,0 +1,68 @@
+<div class="cabecera">
+  <img class="float-start mt-3 ms-5" style="width: 90px; height: 100px;" src="logoIRCEP.png" />
+  <img class="float-end mt-3 me-5" style="height: 100px;" src="logoGobPuebla.png" />
+</div>
+
+<!-- Mostrar el indicador de carga mientras se espera no funciona en angular 18-->
+@if (loading === false) {
+  <div class="text-center col-12">
+    <img class="mt-5" src="cargando.png" alt="Cargando...">
+  </div>
+}@if (loading === true){
+  <div class="row">
+    <div class="col">
+      <div class="container-fluid col-8">
+        <table class="table align-middle table-bordered text-center mt-3 tablaIns">
+          <thead>
+            <tr>
+              <th style="font-size: 18px; background: #C1B999;">INSCRIPCIONES</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(fila of tablaInsPaginada; track fila.nombre){
+              <tr>
+                <td (click)="abrirDoc(fila.ruta)" class="apuntador">
+                  {{fila.nombre}}
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+        <mat-paginator [length]="tablaIns.length"
+                      [pageSize]="10"
+                      [pageSizeOptions]="[10, 15, 20]"
+                      (page)="paginacionIns($event)">
+        </mat-paginator>
+      </div>
+    </div>
+  
+    <div class="col">
+      <div class="container-fluid col-8">
+        <table class="table align-middle table-bordered text-center mt-3 tablaApen">
+          <thead>
+              <tr>
+                <th style="font-size: 18px; background: #bf97a3;">APÉNDICES</th>
+              </tr>
+          </thead>
+          <tbody>
+            @for(fila of tablaApenPaginada; track fila.nombre){
+              <tr>
+                <td (click)="abrirDoc(fila.ruta)" class="apuntador">
+                  {{fila.nombre}}
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+        <mat-paginator [length]="tablaApen.length"
+                      [pageSize]="10"
+                      [pageSizeOptions]="[10, 15, 20]"
+                      (page)="paginacionApen($event)">
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+}
+
+
+
